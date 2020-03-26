@@ -52,5 +52,15 @@ public class DeckTester {
 		System.out.println();
 
 		/* *** TO BE COMPLETED IN ACTIVITY 4 *** */
+		String[] ranks2 = {"ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king"};
+		String[] suits2 = {"hearts", "diamonds", "spades", "clubs"};
+		int[] pointValues2 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
+		Deck d2 = new Deck(ranks2, suits2, pointValues2);
+		d2.shuffle();
+		System.out.println(d2.toString());
+		d2.shuffle();
+		System.out.println(d2.toString());
+		d2.shuffle();
+		System.out.println(d2.toString());
 	}
 }
