@@ -1,4 +1,7 @@
 import java.util.List;
+
+import javax.rmi.ssl.SslRMIClientSocketFactory;
+
 import java.util.ArrayList;
 
 /**
@@ -54,11 +57,12 @@ public class ElevensBoard extends Board {
 	@Override
 	public boolean isLegal(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		boolean r = false;
 		if (containsJQK(selectedCards) || containsPairSum11(selectedCards))
 		{
-			return true;
+			r = true;
 		}
-		return false;
+		return r;
 	}
 
 	/**
@@ -91,7 +95,7 @@ public class ElevensBoard extends Board {
 		{
 			for (int j = 0; j < selectedCards.size(); j++)
 			{
-				if (selectedCards.get(i) + selectedCards.get(j) == 11)
+				if (cardAt(selectedCards.get(i)).pointValue() + cardAt(selectedCards.get(j)).pointValue() == 11)
 				{
 					found = true;
 				}
@@ -116,15 +120,15 @@ public class ElevensBoard extends Board {
 
 		for (int i = 0; i < selectedCards.size(); i++)
 		{
-			if (selectedCards.get(i) == 11)
+			if (cardAt(selectedCards.get(i)).rank() == "jack")
 			{
 				j = true;
 			}
-			if (selectedCards.get(i) == 12)
+			if (cardAt(selectedCards.get(i)).rank() == "queen")
 			{
 				q = true;
 			}
-			if (selectedCards.get(i) == 13)
+			if (cardAt(selectedCards.get(i)).rank() == "king")
 			{
 				k = true;
 			}
